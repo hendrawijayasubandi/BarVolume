@@ -2,6 +2,7 @@ package com.hendra.barvolume
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -62,8 +63,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 edtHeight.error = "Field ini tidak boleh kosong"
             }
 
-            val volume = inputLength.toDouble() * inputWidth.toDouble() * inputHeight.toDouble()
-            tvResult.text = volume.toString()
+            if (!isEmptyFields) {
+                val volume = inputLength.toDouble() * inputWidth.toDouble() * inputHeight.toDouble()
+                tvResult.text = volume.toString()
+            }
         }
     }
 }
